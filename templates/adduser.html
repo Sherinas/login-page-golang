@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Panel</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #4d4e52;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    .card {
+      background: rgba(41, 46, 47, 0.7);
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .card-header, .btn-primary {
+      color: #fff;
+    }
+
+    .form-control {
+      background-color: #555;
+      border: 1px solid #777;
+      color: #fff;
+    }
+
+    .form-control:focus {
+      background-color: #666;
+      border: 1px solid #b71c1c;
+      color: #fff;
+    }
+
+    .btn-primary {
+      background-color: #046714;
+      border-color: #035e04;
+    }
+
+    .btn-primary:hover {
+      background-color: #d32f2f;
+      border-color: #d32f2f;
+    }
+
+    .text-white a {
+      color: #ffc107;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-header text-center">
+            <h2>Create User</h2>
+          </div>
+          <div class="card-body">
+            <form action="/create" method="post">
+              <div class="form-group">
+                <label for="full-name">Full Name</label>
+                <input type="text" name="name" class="form-control" id="full-name" placeholder="Enter your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+              </div>
+              <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
+              </div>
+              <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" name="pasconf" class="form-control" id="confirm-password" placeholder="Confirm Password" required>
+              </div>
+              {{ if .error }}
+              <div class="text-danger mt-2">{{ .error }}</div>
+              {{ end }}  
+              <div class="button-group">
+                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+               
+            </form>
+          </div>
+        
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
